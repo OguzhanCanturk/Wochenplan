@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-
+		int t = 1;
 		Termin[][] termine = new Termin[7][48];
 
 		menu();
