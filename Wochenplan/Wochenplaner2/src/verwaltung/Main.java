@@ -14,11 +14,11 @@ public class Main {
 
 	public static void menu() {
 
-		System.out.println("Was möchtest du tun?");
+		System.out.println("Was mÃ¶chtest du tun?");
 		System.out.println("Tippe A, um einen neuen Termin zu erstellen");
 		System.out.println("Tippe B, um einen Termin umzubennen");
 		System.out.println("Tippe C, um den Stundenplan auszugeben");
-		System.out.println("Tippe E für Ende");
+		System.out.println("Tippe E fÃ¼r Ende");
 	}
 
 	public static void programm(Termin[][] termine) {
@@ -30,7 +30,7 @@ public class Main {
 		switch (funct) {
 		case "A":
 			System.out.printf(
-					"Geben sie den Wochentag ein, an dem sie einen Termin hinzufügen wollen%n(Montag = 1, Dienstag = 2; Mittwoch = 3, Donnerstag = 4, Freitag = 5; Samstag = 6, Sonntag = 7)%n");
+					"Geben sie den Wochentag ein, an dem sie einen Termin hinzufÃ¼gen wollen%n(Montag = 1, Dienstag = 2; Mittwoch = 3, Donnerstag = 4, Freitag = 5; Samstag = 6, Sonntag = 7)%n");
 			int tag = sc.nextInt();
 
 			System.out.println("Geben sie die Start- und Enduhrzeit an (z.B. 13:30 Uhr als 13,5)");
