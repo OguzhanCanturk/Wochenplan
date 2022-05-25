@@ -30,7 +30,7 @@ public class Main {
 		case "A":
 			System.out.printf(
 					"Geben sie den Wochentag ein, an dem sie einen Termin hinzufügen wollen%n(Montag = 1, Dienstag = 2; Mittwoch = 3, Donnerstag = 4, Freitag = 5; Samstag = 6, Sonntag = 7)%n");
-			int tag = sc.nextInt();
+			int tag = sc.nextInt() - 1;
 
 			System.out.println("Geben sie die Start- und Enduhrzeit an (z.B. 13:30 Uhr als 13,5)");
 			int beginn = (int) (sc.nextDouble() * 2);
@@ -73,8 +73,8 @@ public class Main {
 				}
 			}
 		}
-		
-		if(!anyTermin)
+
+		if (!anyTermin)
 			System.out.println("Es wurden noch keine Termine eingetragen");
 	}
 }
