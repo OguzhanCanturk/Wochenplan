@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		int t = 1;
 		Termin[][] termine = new Termin[7][48];
 
 		menu();
@@ -52,6 +51,8 @@ public class Main {
 			System.exit(0);
 			break;
 		default:
+			System.out.println("Keine gültige Eingabe!");
+			programm(termine);
 			break;
 		}
 		programm(termine);
