@@ -34,5 +34,4 @@ public class Wochenplan {
 		
 		return builder.toString();
 	}
-	
 }
