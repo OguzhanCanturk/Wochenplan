@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		int t = 1;
 		Termin[][] termine = new Termin[7][48];
 
 		menu();
@@ -27,7 +26,7 @@ public class Main {
 
 		String funct = sc.next();
 
-		switch (funct) {
+		switch (funct.toUpperCase()) {
 		case "A":
 			System.out.printf(
 					"Geben sie den Wochentag ein, an dem sie einen Termin hinzufügen wollen%n(Montag = 1, Dienstag = 2; Mittwoch = 3, Donnerstag = 4, Freitag = 5; Samstag = 6, Sonntag = 7)%n");
@@ -62,13 +61,18 @@ public class Main {
 	}
 
 	public static void printTermine(Termin[][] termine) {
+		boolean anyTermin = false;
 		for (int tag = 0; tag < 7; tag++) {
 			for (int i = 0; i < 48; i++) {
 				if (termine[tag][i] != null) {
 					System.out.println(termine[tag][i]);
 					i += termine[tag][i].dauer;
+					anyTermin = true;
 				}
 			}
 		}
+		
+		if(!anyTermin)
+			System.out.println("Es wurden noch keine Termine eingetragen");
 	}
 }
