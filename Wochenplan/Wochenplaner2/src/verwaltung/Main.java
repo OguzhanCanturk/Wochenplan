@@ -52,9 +52,9 @@ public class Main {
 			break;
 		default:
 			System.out.println("Keine gültige Eingabe!");
-			programm(termine);
 			break;
 		}
+		sc.close();
 		programm(termine);
 	}
 
