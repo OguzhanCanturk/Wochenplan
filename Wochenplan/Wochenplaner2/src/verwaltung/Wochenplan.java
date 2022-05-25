@@ -11,6 +11,7 @@ public class Wochenplan {
 	public Wochenplan(Zeitplan plan) {
 		if(plan == null)
 			return;
+		//TODO LOGIK MIT ZEITPLAN AUTOMATISCH TERMINE HINZUFÜGEN
 	}
 	
 	public void addTermin(String name, int tag, int beginn, int ende) {
