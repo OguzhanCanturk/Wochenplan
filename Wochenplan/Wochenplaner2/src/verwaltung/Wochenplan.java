@@ -5,7 +5,13 @@ public class Wochenplan {
 	Termin[][] termine = new Termin[7][48];
 
 	public Wochenplan() {
-		
+		this(null);
+	}
+	
+	public Wochenplan(Zeitplan plan) {
+		if(plan == null)
+			return;
+		//TODO LOGIK MIT ZEITPLAN AUTOMATISCH TERMINE HINZUFÜGEN
 	}
 	
 	public void addTermin(String name, int tag, int beginn, int ende) {
