@@ -3,9 +3,12 @@ package verwaltung;
 import java.util.Scanner;
 
 public class Main {
+	
+	private static Scanner sc;
 
 	public static void main(String[] args) {
 		Termin[][] termine = new Termin[7][48];
+		sc = new Scanner(System.in);
 
 		menu();
 		programm(termine);
@@ -21,9 +24,6 @@ public class Main {
 	}
 
 	public static void programm(Termin[][] termine) {
-
-		Scanner sc = new Scanner(System.in);
-
 		String funct = sc.next();
 
 		switch (funct.toUpperCase()) {
@@ -54,7 +54,6 @@ public class Main {
 			System.out.println("Keine gültige Eingabe!");
 			break;
 		}
-		sc.close();
 		programm(termine);
 	}
 
