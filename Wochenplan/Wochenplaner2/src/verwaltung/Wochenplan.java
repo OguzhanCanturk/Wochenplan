@@ -13,6 +13,11 @@ public class Wochenplan {
 	public Wochenplan() {
 		this(null);
 	}
+	
+	public Wochenplan(Termin[][] termine) {
+		super();
+		this.termine = termine;
+	}
 
 	public Wochenplan(Zeitplan plan) {
 		if (plan == null)
@@ -57,22 +62,6 @@ public class Wochenplan {
 		}
 
 		return true;
-	}
-
-	/**
-	 * Returnt true bei erfolgreicher Umbenennung des Termins. Andernfalls wird
-	 * false returnt.
-	 */
-	public boolean renameTermin(int tag, int zeitslot, String newName) {
-
-		if (!existsTermin(tag, zeitslot))
-			return false;
-
-		Termin termin = termine[tag][zeitslot];
-
-		termin.setName(newName);
-		return true;
-
 	}
 
 	/**

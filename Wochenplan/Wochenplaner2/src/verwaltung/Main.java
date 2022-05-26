@@ -7,11 +7,13 @@ public class Main {
 	private static Scanner sc;
 
 	public static void main(String[] args) {
+		
 		Termin[][] termine = new Termin[7][48];
+		Wochenplan woche1 = new Wochenplan(termine);
 		sc = new Scanner(System.in);
 
 		menu();
-		programm(termine);
+		programm(termine, woche1);
 	}
 
 	public static void menu() {
@@ -24,7 +26,7 @@ public class Main {
 		System.out.println("Tippe E für Ende");
 	}
 
-	public static void programm(Termin[][] termine) {
+	public static void programm(Termin[][] termine, Wochenplan woche) {
 
 		boolean looping = true;
 
@@ -49,16 +51,25 @@ public class Main {
 				}
 				break;
 			case "B":
-				System.out.println("Gebe Sie den Tag und die Uhrzeit des Termins ein, welches Sie löschen möchten.");
+				System.out.println("Gebe Sie den Tag und die Startpunkt des Termins ein, welches Sie löschen möchten.");
 				break;
 			case "C":
 				printTermine(termine);
 				break;
 			case "D":
-				System.out.println("Gebe Sie den Tag und die Uhrzeit des Termins ein, welches Sie umbennen möchten.");
-				int tag1 = sc.nextInt();
+				System.out
+						.println("Gebe Sie den Tag und den Startpunkt des Termins ein, welches Sie umbennen möchten.");
+				int tag1 = sc.nextInt() - 1;
 				int uhrzeit = (int) (sc.nextDouble() * 2);
-				System.out.println("Geben Sie den neuen Namen des Termins ein");
+
+				if (woche.existsTermin(tag1, uhrzeit)) {
+					System.out.println("Geben Sie den neuen Namen des Termins ein");
+					for (int i = 0; i < termine[tag1][uhrzeit].dauer; i++) {
+						termine[tag1][uhrzeit + i].setName(sc.next());
+					}
+				} else {
+					System.out.println("Termin exisitert nicht");
+				}
 
 				break;
 			case "E":
