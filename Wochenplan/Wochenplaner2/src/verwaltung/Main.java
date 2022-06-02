@@ -93,7 +93,7 @@ public class Main {
 			for (int i = 0; i < 48; i++) {
 				if (termine[tag][i] != null) {
 					System.out.println(termine[tag][i]);
-					i += termine[tag][i].dauer;
+					i += termine[tag][i].dauer -1;
 					anyTermin = true;
 				}
 			}

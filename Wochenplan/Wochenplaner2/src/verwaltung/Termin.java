@@ -6,7 +6,7 @@ public class Termin {
 	public int beginn;
 	public int ende;
 	public int dauer;
-	
+
 	public Termin(String name, int beginn, int ende) {
 		super();
 		this.name = name;
@@ -41,7 +41,12 @@ public class Termin {
 
 	@Override
 	public String toString() {
-		return beginn/2 + " - " + ende/2 + " Uhr: " + name;
-		
+		int beginnStunden = (int) (beginn / 2);
+		int endeStunden = (int) (ende / 2);
+		int beginnMinuten = (int) (((double) (beginn) / 2 % 1) * 60);
+		int endeMinuten = (int) (((double) (ende) / 2 % 1) * 60);
+
+		return beginnStunden + ":" + beginnMinuten + "-" + endeStunden + ":" + endeMinuten + " Uhr: " + name;
+
 	}
 }
