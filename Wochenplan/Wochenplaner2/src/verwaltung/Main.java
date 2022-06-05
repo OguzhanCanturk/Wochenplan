@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Termin[][] termine = new Termin[7][48];
+		Termin[][] termine = new Termin[7][96];
 		Wochenplan woche1 = new Wochenplan(termine);
 		sc = new Scanner(System.in);
 
@@ -40,8 +40,8 @@ public class Main {
 				int tag = sc.nextInt() - 1;
 
 				System.out.println("Geben Sie die Start- und Enduhrzeit an (z.B. 13:30 Uhr als 13,5)");
-				int beginn = (int) (sc.nextDouble() * 2);
-				int ende = (int) (sc.nextDouble() * 2);
+				int beginn = (int) (sc.nextDouble() * 4);
+				int ende = (int) (sc.nextDouble() * 4);
 
 				System.out.println("Geben sie den Namen des Termins ein");
 				String TerminBezeichner = sc.next();
@@ -60,7 +60,7 @@ public class Main {
 				System.out
 						.println("Gebe Sie den Tag und den Startpunkt des Termins ein, welches Sie umbennen möchten.");
 				int tag1 = sc.nextInt() - 1;
-				int uhrzeit = (int) (sc.nextDouble() * 2);
+				int uhrzeit = (int) (sc.nextDouble() * 4);
 
 				if (woche.existsTermin(tag1, uhrzeit)) {
 					System.out.println("Geben Sie den neuen Namen des Termins ein");
@@ -90,7 +90,7 @@ public class Main {
 	public static void printTermine(Termin[][] termine) {
 		boolean anyTermin = false;
 		for (int tag = 0; tag < 7; tag++) {
-			for (int i = 0; i < 48; i++) {
+			for (int i = 0; i < 96; i++) {
 				if (termine[tag][i] != null) {
 					System.out.println(termine[tag][i]);
 					i += termine[tag][i].dauer -1;

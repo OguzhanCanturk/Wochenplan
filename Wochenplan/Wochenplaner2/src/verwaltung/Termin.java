@@ -41,12 +41,20 @@ public class Termin {
 
 	@Override
 	public String toString() {
-		int beginnStunden = (int) (beginn / 2);
-		int endeStunden = (int) (ende / 2);
-		int beginnMinuten = (int) (((double) (beginn) / 2 % 1) * 60);
-		int endeMinuten = (int) (((double) (ende) / 2 % 1) * 60);
-
-		return beginnStunden + ":" + beginnMinuten + "-" + endeStunden + ":" + endeMinuten + " Uhr: " + name;
-
+		int beginnStunden = (int) (beginn / 4);
+		int endeStunden = (int) (ende / 4);
+		int beginnMinuten = (int) (((double) (beginn) / 4 % 1) * 60);
+		int endeMinuten = (int) (((double) (ende) / 4 % 1) * 60);
+		String bMinuten = String.valueOf(beginnMinuten);
+		String eMinuten = String.valueOf(endeMinuten);
+		
+		if (bMinuten.equals("0")) {
+			bMinuten += "0";
+		}
+		if (eMinuten.equals("0")) {
+			eMinuten += "0";
+		}
+		
+		return beginnStunden + ":" + bMinuten + "-" + endeStunden + ":" + eMinuten + " Uhr: " + name;
 	}
 }
