@@ -65,20 +65,22 @@ public class Main {
 				}
 				break;
 			case "D":
-				System.out
-						.println("Gebe Sie den Tag und den Startpunkt des Termins ein, welches Sie umbennen möchten.");
+				System.out.println("Gebe Sie den Tag und den Startpunkt des Termins ein, welches Sie umbennen möchten.");
 				int tag1 = sc.nextInt() - 1;
 				int uhrzeit = (int) (sc.nextDouble() * 4);
 
 				if (woche.existsTermin(tag1, uhrzeit)) {
-					System.out.println("Geben Sie den neuen Namen des Termins ein");
-					for (int i = 0; i < termine[tag1][uhrzeit].dauer; i++) {
-						termine[tag1][uhrzeit + i].setName(sc.next());
+					System.out.println("Möchten Sie wirklich den folgenden Termin umbenennen?");
+					System.out.println(woche.getTermin(tag1, uhrzeit));
+					System.out.println("y für yes oder n für no");
+					String input = sc.next();
+					if (input.equals("y")) {
+						System.out.println("Geben Sie den neuen Namen des Termins ein");
+						woche.termine[tag1][uhrzeit].setName(sc.next());
 					}
 				} else {
 					System.out.println("Termin exisitert nicht");
 				}
-
 				break;
 			case "E":
 				System.out.println("Thank you for using our software! Bye");
