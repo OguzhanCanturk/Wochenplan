@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Wochenplan {
 
-	private Termin[][] termine = new Termin[7][48];
+	Termin[][] termine = new Termin[7][48];
 
 	public Wochenplan() {
 		this(null);
@@ -76,6 +76,18 @@ public class Wochenplan {
 	 */
 	public boolean existsTermin(int tag, int zeitslot) {
 		return termine[tag][zeitslot] != null;
+	}
+	
+	/**
+	 * Returnt true, wenn an diesem Tag mindestens ein Termin eingetragen ist
+	 */
+	public boolean existsTermin(int tag) {
+		for(int i = 0; i < termine[tag].length; i++) {
+			if(existsTermin(tag, i)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

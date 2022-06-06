@@ -7,7 +7,7 @@ public class Main {
 	private static Scanner sc;
 
 	public static void main(String[] args) {
-		
+
 		Termin[][] termine = new Termin[7][96];
 		Wochenplan woche1 = new Wochenplan(termine);
 		sc = new Scanner(System.in);
@@ -54,7 +54,15 @@ public class Main {
 				System.out.println("Gebe Sie den Tag und die Startpunkt des Termins ein, welches Sie löschen möchten.");
 				break;
 			case "C":
-				printTermine(termine);
+				System.out.println("Möchten Sie eine Wochenübersicht oder Tagesübersicht?");
+				System.out.println("w für Wochenübersicht oder andere Eingabe für Tagesübersicht");
+				String in = sc.next();
+				if (in.equals("w")) {
+					printTermine(woche);
+				} else {
+					System.out.println("Geben Sie den gewünschten Wochentag ein");
+					printTermine(woche.termine, sc.nextInt() - 1);
+				}
 				break;
 			case "D":
 				System.out
@@ -86,16 +94,54 @@ public class Main {
 	public static Termin addTermin(String name, int beginn, int ende) {
 		return new Termin(name, beginn, ende);
 	}
-
-	public static void printTermine(Termin[][] termine) {
+	
+	public static void printTermine(Wochenplan woche) {
 		boolean anyTermin = false;
 		for (int tag = 0; tag < 7; tag++) {
+			if(woche.existsTermin(tag))
+			switch (tag) {
+			case 0:
+				System.out.println("Montag:");
+				break;
+			case 1:
+				System.out.println("Dienstag:");
+				break;
+			case 2:
+				System.out.println("Mittwoch:");
+				break;
+			case 3:
+				System.out.println("Donnerstag:");
+				break;
+			case 4:
+				System.out.println("Freitag:");
+				break;
+			case 5:
+				System.out.println("Samstag:");
+				break;
+			case 6:
+				System.out.println("Sonntag:");
+				break;
+			}
 			for (int i = 0; i < 96; i++) {
-				if (termine[tag][i] != null) {
-					System.out.println(termine[tag][i]);
-					i += termine[tag][i].dauer -1;
+				if (woche.termine[tag][i] != null) {
+					System.out.println(woche.termine[tag][i]);
+					i += woche.termine[tag][i].dauer;
 					anyTermin = true;
 				}
+			}
+		}
+
+		if (!anyTermin)
+			System.out.println("Es wurden noch keine Termine eingetragen");
+	}
+
+	public static void printTermine(Termin[][] termine, int tag) {
+		boolean anyTermin = false;
+		for (int i = 0; i < 96; i++) {
+			if (termine[tag][i] != null) {
+				System.out.println(termine[tag][i]);
+				i += termine[tag][i].dauer - 1;
+				anyTermin = true;
 			}
 		}
 
