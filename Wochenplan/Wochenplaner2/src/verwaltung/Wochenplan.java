@@ -14,10 +14,11 @@ public class Wochenplan {
 		this(null);
 	}
 
-	public Wochenplan(Zeitplan plan) {
+	public Wochenplan(Wochenplan plan) {
 		if (plan == null)
 			return;
-		// TODO LOGIK MIT ZEITPLAN AUTOMATISCH TERMINE HINZUFÜGEN
+		
+		this.termine = plan.termine;
 	}
 
 	public void addTermin(String name, int tag, int beginn, int ende) {
@@ -108,7 +109,7 @@ public class Wochenplan {
 		for (int tag = 0; tag < 7; tag++) {
 			for (int i = 0; i < 48; i++) {
 				if (termine[tag][i] != null) {
-					builder.append(termine[tag][i] + "/n");
+					builder.append(termine[tag][i] + "\n");
 					System.out.println();
 					i += termine[tag][i].dauer;
 					anyTermin = true;
