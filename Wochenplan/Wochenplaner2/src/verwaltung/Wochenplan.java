@@ -8,10 +8,15 @@ import java.io.IOException;
 
 public class Wochenplan {
 
-	private Termin[][] termine = new Termin[7][48];
+	Termin[][] termine = new Termin[7][48];
 
 	public Wochenplan() {
-		this(null);
+		//this(null);
+	}
+	
+	public Wochenplan(Termin[][] termine) {
+		super();
+		this.termine = termine;
 	}
 
 	public Wochenplan(Wochenplan plan) {
@@ -61,22 +66,6 @@ public class Wochenplan {
 	}
 
 	/**
-	 * Returnt true bei erfolgreicher Umbenennung des Termins. Andernfalls wird
-	 * false returnt.
-	 */
-	public boolean renameTermin(int tag, int zeitslot, String newName) {
-
-		if (!existsTermin(tag, zeitslot))
-			return false;
-
-		Termin termin = termine[tag][zeitslot];
-
-		termin.setName(newName);
-		return true;
-
-	}
-
-	/**
 	 * Returnt einen Termin falls vorhanden, sonst null
 	 */
 	public Termin getTermin(int tag, int zeitslot) {
@@ -88,6 +77,18 @@ public class Wochenplan {
 	 */
 	public boolean existsTermin(int tag, int zeitslot) {
 		return termine[tag][zeitslot] != null;
+	}
+	
+	/**
+	 * Returnt true, wenn an diesem Tag mindestens ein Termin eingetragen ist
+	 */
+	public boolean existsTermin(int tag) {
+		for(int i = 0; i < termine[tag].length; i++) {
+			if(existsTermin(tag, i)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
